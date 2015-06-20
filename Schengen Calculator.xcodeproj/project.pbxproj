@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58814BC41B3565E800FE9634 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC31B3565E800FE9634 /* main.m */; };
+		58814BC71B3565E800FE9634 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC61B3565E800FE9634 /* AppDelegate.m */; };
+		58814BCA1B3565E800FE9634 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC91B3565E800FE9634 /* ViewController.m */; };
+		58814BCD1B3565E800FE9634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCB1B3565E800FE9634 /* Main.storyboard */; };
+		58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCE1B3565E800FE9634 /* Images.xcassets */; };
+		58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58814BD01B3565E800FE9634 /* LaunchScreen.xib */; };
+		58814BDE1B3565E800FE9634 /* Schengen_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BDD1B3565E800FE9634 /* Schengen_CalculatorTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58814BD81B3565E800FE9634 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58814BB61B3565E700FE9634 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58814BBD1B3565E800FE9634;
+			remoteInfo = "Schengen Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		58814BBE1B3565E800FE9634 /* Schengen Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schengen Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58814BC21B3565E800FE9634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58814BC31B3565E800FE9634 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58814BC51B3565E800FE9634 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		58814BC61B3565E800FE9634 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58814BC81B3565E800FE9634 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		58814BC91B3565E800FE9634 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		58814BCC1B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		58814BCE1B3565E800FE9634 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		58814BD11B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Schengen CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58814BDC1B3565E800FE9634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58814BDD1B3565E800FE9634 /* Schengen_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Schengen_CalculatorTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58814BBB1B3565E800FE9634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58814BD41B3565E800FE9634 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58814BB51B3565E700FE9634 = {
+			isa = PBXGroup;
+			children = (
+				58814BC01B3565E800FE9634 /* Schengen Calculator */,
+				58814BDA1B3565E800FE9634 /* Schengen CalculatorTests */,
+				58814BBF1B3565E800FE9634 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58814BBF1B3565E800FE9634 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58814BBE1B3565E800FE9634 /* Schengen Calculator.app */,
+				58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58814BC01B3565E800FE9634 /* Schengen Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				58814BC51B3565E800FE9634 /* AppDelegate.h */,
+				58814BC61B3565E800FE9634 /* AppDelegate.m */,
+				58814BC81B3565E800FE9634 /* ViewController.h */,
+				58814BC91B3565E800FE9634 /* ViewController.m */,
+				58814BCB1B3565E800FE9634 /* Main.storyboard */,
+				58814BCE1B3565E800FE9634 /* Images.xcassets */,
+				58814BD01B3565E800FE9634 /* LaunchScreen.xib */,
+				58814BC11B3565E800FE9634 /* Supporting Files */,
+			);
+			path = "Schengen Calculator";
+			sourceTree = "<group>";
+		};
+		58814BC11B3565E800FE9634 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58814BC21B3565E800FE9634 /* Info.plist */,
+				58814BC31B3565E800FE9634 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58814BDA1B3565E800FE9634 /* Schengen CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				58814BDD1B3565E800FE9634 /* Schengen_CalculatorTests.m */,
+				58814BDB1B3565E800FE9634 /* Supporting Files */,
+			);
+			path = "Schengen CalculatorTests";
+			sourceTree = "<group>";
+		};
+		58814BDB1B3565E800FE9634 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58814BDC1B3565E800FE9634 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58814BBD1B3565E800FE9634 /* Schengen Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58814BE11B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen Calculator" */;
+			buildPhases = (
+				58814BBA1B3565E800FE9634 /* Sources */,
+				58814BBB1B3565E800FE9634 /* Frameworks */,
+				58814BBC1B3565E800FE9634 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Schengen Calculator";
+			productName = "Schengen Calculator";
+			productReference = 58814BBE1B3565E800FE9634 /* Schengen Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+		58814BD61B3565E800FE9634 /* Schengen CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58814BE41B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen CalculatorTests" */;
+			buildPhases = (
+				58814BD31B3565E800FE9634 /* Sources */,
+				58814BD41B3565E800FE9634 /* Frameworks */,
+				58814BD51B3565E800FE9634 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58814BD91B3565E800FE9634 /* PBXTargetDependency */,
+			);
+			name = "Schengen CalculatorTests";
+			productName = "Schengen CalculatorTests";
+			productReference = 58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58814BB61B3565E700FE9634 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "ELTIMA LLC";
+				TargetAttributes = {
+					58814BBD1B3565E800FE9634 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					58814BD61B3565E800FE9634 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = 58814BBD1B3565E800FE9634;
+					};
+				};
+			};
+			buildConfigurationList = 58814BB91B3565E700FE9634 /* Build configuration list for PBXProject "Schengen Calculator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58814BB51B3565E700FE9634;
+			productRefGroup = 58814BBF1B3565E800FE9634 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58814BBD1B3565E800FE9634 /* Schengen Calculator */,
+				58814BD61B3565E800FE9634 /* Schengen CalculatorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58814BBC1B3565E800FE9634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58814BCD1B3565E800FE9634 /* Main.storyboard in Resources */,
+				58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */,
+				58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58814BD51B3565E800FE9634 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58814BBA1B3565E800FE9634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58814BCA1B3565E800FE9634 /* ViewController.m in Sources */,
+				58814BC71B3565E800FE9634 /* AppDelegate.m in Sources */,
+				58814BC41B3565E800FE9634 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58814BD31B3565E800FE9634 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58814BDE1B3565E800FE9634 /* Schengen_CalculatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58814BD91B3565E800FE9634 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58814BBD1B3565E800FE9634 /* Schengen Calculator */;
+			targetProxy = 58814BD81B3565E800FE9634 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		58814BCB1B3565E800FE9634 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58814BCC1B3565E800FE9634 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		58814BD01B3565E800FE9634 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58814BD11B3565E800FE9634 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58814BDF1B3565E800FE9634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58814BE01B3565E800FE9634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58814BE21B3565E800FE9634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58814BE31B3565E800FE9634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		58814BE51B3565E800FE9634 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Schengen CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Schengen Calculator.app/Schengen Calculator";
+			};
+			name = Debug;
+		};
+		58814BE61B3565E800FE9634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Schengen CalculatorTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Schengen Calculator.app/Schengen Calculator";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58814BB91B3565E700FE9634 /* Build configuration list for PBXProject "Schengen Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58814BDF1B3565E800FE9634 /* Debug */,
+				58814BE01B3565E800FE9634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58814BE11B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58814BE21B3565E800FE9634 /* Debug */,
+				58814BE31B3565E800FE9634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		58814BE41B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58814BE51B3565E800FE9634 /* Debug */,
+				58814BE61B3565E800FE9634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58814BB61B3565E700FE9634 /* Project object */;
+}
