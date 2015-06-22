@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582703391B3850CD009BBCD7 /* mainVisaCalc.m in Sources */ = {isa = PBXBuildFile; fileRef = 582703361B3850CD009BBCD7 /* mainVisaCalc.m */; };
+		5827033A1B3850CD009BBCD7 /* Trip.m in Sources */ = {isa = PBXBuildFile; fileRef = 582703381B3850CD009BBCD7 /* Trip.m */; };
+		5827033D1B3852ED009BBCD7 /* SCTripsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5827033C1B3852ED009BBCD7 /* SCTripsTableViewCell.m */; };
+		582703401B38772B009BBCD7 /* in.png in Resources */ = {isa = PBXBuildFile; fileRef = 5827033E1B38772B009BBCD7 /* in.png */; };
+		582703411B38772B009BBCD7 /* out.png in Resources */ = {isa = PBXBuildFile; fileRef = 5827033F1B38772B009BBCD7 /* out.png */; };
+		582703441B387E77009BBCD7 /* SCTripViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 582703431B387E77009BBCD7 /* SCTripViewController.m */; };
+		582703481B38A716009BBCD7 /* UICountingLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 582703471B38A716009BBCD7 /* UICountingLabel.m */; };
 		58814BC41B3565E800FE9634 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC31B3565E800FE9634 /* main.m */; };
 		58814BC71B3565E800FE9634 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC61B3565E800FE9634 /* AppDelegate.m */; };
-		58814BCA1B3565E800FE9634 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC91B3565E800FE9634 /* ViewController.m */; };
+		58814BCA1B3565E800FE9634 /* SCMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BC91B3565E800FE9634 /* SCMainViewController.m */; };
 		58814BCD1B3565E800FE9634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCB1B3565E800FE9634 /* Main.storyboard */; };
 		58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCE1B3565E800FE9634 /* Images.xcassets */; };
 		58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58814BD01B3565E800FE9634 /* LaunchScreen.xib */; };
@@ -27,13 +34,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		582703351B3850CD009BBCD7 /* mainVisaCalc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainVisaCalc.h; sourceTree = "<group>"; };
+		582703361B3850CD009BBCD7 /* mainVisaCalc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainVisaCalc.m; sourceTree = "<group>"; };
+		582703371B3850CD009BBCD7 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
+		582703381B3850CD009BBCD7 /* Trip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trip.m; sourceTree = "<group>"; };
+		5827033B1B3852ED009BBCD7 /* SCTripsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTripsTableViewCell.h; sourceTree = "<group>"; };
+		5827033C1B3852ED009BBCD7 /* SCTripsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTripsTableViewCell.m; sourceTree = "<group>"; };
+		5827033E1B38772B009BBCD7 /* in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = in.png; path = Images.xcassets/in.png; sourceTree = "<group>"; };
+		5827033F1B38772B009BBCD7 /* out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = out.png; path = Images.xcassets/out.png; sourceTree = "<group>"; };
+		582703421B387E77009BBCD7 /* SCTripViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTripViewController.h; sourceTree = "<group>"; };
+		582703431B387E77009BBCD7 /* SCTripViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTripViewController.m; sourceTree = "<group>"; };
+		582703461B38A716009BBCD7 /* UICountingLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICountingLabel.h; sourceTree = "<group>"; };
+		582703471B38A716009BBCD7 /* UICountingLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICountingLabel.m; sourceTree = "<group>"; };
 		58814BBE1B3565E800FE9634 /* Schengen Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Schengen Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58814BC21B3565E800FE9634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58814BC31B3565E800FE9634 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		58814BC51B3565E800FE9634 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		58814BC61B3565E800FE9634 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		58814BC81B3565E800FE9634 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		58814BC91B3565E800FE9634 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		58814BC81B3565E800FE9634 /* SCMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCMainViewController.h; sourceTree = "<group>"; };
+		58814BC91B3565E800FE9634 /* SCMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCMainViewController.m; sourceTree = "<group>"; };
 		58814BCC1B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58814BCE1B3565E800FE9634 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58814BD11B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +79,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		582703341B385084009BBCD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				582703351B3850CD009BBCD7 /* mainVisaCalc.h */,
+				582703361B3850CD009BBCD7 /* mainVisaCalc.m */,
+				582703371B3850CD009BBCD7 /* Trip.h */,
+				582703381B3850CD009BBCD7 /* Trip.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		582703451B3887FA009BBCD7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5827033B1B3852ED009BBCD7 /* SCTripsTableViewCell.h */,
+				5827033C1B3852ED009BBCD7 /* SCTripsTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		58814BB51B3565E700FE9634 = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +120,17 @@
 		58814BC01B3565E800FE9634 /* Schengen Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				58814BC51B3565E800FE9634 /* AppDelegate.h */,
-				58814BC61B3565E800FE9634 /* AppDelegate.m */,
-				58814BC81B3565E800FE9634 /* ViewController.h */,
-				58814BC91B3565E800FE9634 /* ViewController.m */,
+				58814BC81B3565E800FE9634 /* SCMainViewController.h */,
+				58814BC91B3565E800FE9634 /* SCMainViewController.m */,
+				582703421B387E77009BBCD7 /* SCTripViewController.h */,
+				582703431B387E77009BBCD7 /* SCTripViewController.m */,
+				582703461B38A716009BBCD7 /* UICountingLabel.h */,
+				582703471B38A716009BBCD7 /* UICountingLabel.m */,
 				58814BCB1B3565E800FE9634 /* Main.storyboard */,
 				58814BCE1B3565E800FE9634 /* Images.xcassets */,
 				58814BD01B3565E800FE9634 /* LaunchScreen.xib */,
+				582703451B3887FA009BBCD7 /* Cells */,
+				582703341B385084009BBCD7 /* Model */,
 				58814BC11B3565E800FE9634 /* Supporting Files */,
 			);
 			path = "Schengen Calculator";
@@ -96,6 +139,10 @@
 		58814BC11B3565E800FE9634 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				58814BC51B3565E800FE9634 /* AppDelegate.h */,
+				58814BC61B3565E800FE9634 /* AppDelegate.m */,
+				5827033E1B38772B009BBCD7 /* in.png */,
+				5827033F1B38772B009BBCD7 /* out.png */,
 				58814BC21B3565E800FE9634 /* Info.plist */,
 				58814BC31B3565E800FE9634 /* main.m */,
 			);
@@ -199,7 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582703401B38772B009BBCD7 /* in.png in Resources */,
 				58814BCD1B3565E800FE9634 /* Main.storyboard in Resources */,
+				582703411B38772B009BBCD7 /* out.png in Resources */,
 				58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */,
 				58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */,
 			);
@@ -219,8 +268,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58814BCA1B3565E800FE9634 /* ViewController.m in Sources */,
+				5827033A1B3850CD009BBCD7 /* Trip.m in Sources */,
+				582703481B38A716009BBCD7 /* UICountingLabel.m in Sources */,
+				582703391B3850CD009BBCD7 /* mainVisaCalc.m in Sources */,
+				58814BCA1B3565E800FE9634 /* SCMainViewController.m in Sources */,
+				582703441B387E77009BBCD7 /* SCTripViewController.m in Sources */,
 				58814BC71B3565E800FE9634 /* AppDelegate.m in Sources */,
+				5827033D1B3852ED009BBCD7 /* SCTripsTableViewCell.m in Sources */,
 				58814BC41B3565E800FE9634 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +403,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +474,7 @@
 				58814BE31B3565E800FE9634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58814BE41B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +483,7 @@
 				58814BE61B3565E800FE9634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
