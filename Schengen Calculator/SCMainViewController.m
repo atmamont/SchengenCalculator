@@ -13,10 +13,11 @@
 #import "UICountingLabel.h"
 
 #define ANIMATION_DURATION  1.0f
+#define ALERT_ANIMATION_DURATION    0.15f
 
 @interface SCMainViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *entryDateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *entryDateLabelButton;
 @property (weak, nonatomic) IBOutlet UIButton *entryDateButton;
 @property (weak, nonatomic) IBOutlet UICountingLabel *daysCounter;
 @property (weak, nonatomic) IBOutlet UILabel *underCountLabel;
@@ -47,10 +48,11 @@ BOOL    _isShowingDatePicker;
     self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
     
     // Setup borders around label and button for entry date
-    [[self.entryDateLabel layer] setBorderWidth:1.0f];
-    [[self.entryDateLabel layer] setBorderColor:[UIColor lightGrayColor].CGColor];
+    [[self.entryDateLabelButton layer] setBorderWidth:1.0f];
+    [[self.entryDateLabelButton layer] setBorderColor:[UIColor lightGrayColor].CGColor];
     [[self.entryDateButton layer] setBorderWidth:1.0f];
     [[self.entryDateButton layer] setBorderColor:[UIColor lightGrayColor].CGColor];
+    self.entryDateLabelButton.enabled = NO;
     
     _isShowingDatePicker = NO;
     self.entryDatePicker.minimumDate = [NSDate date];
@@ -70,6 +72,17 @@ BOOL    _isShowingDatePicker;
     self.daysCounter.format = @"%d%";
     self.daysCounter.method = UILabelCountingMethodLinear;
     [self.daysCounter countFrom:90 to:90];
+    
+    self.alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, -17)];
+    self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height, self.view.frame.size.width, 17)];
+    self.alertLabel.textAlignment = NSTextAlignmentCenter;
+    [self.alertLabel setBackgroundColor:[UIColor yellowColor]];
+    [self.alertLabel setFont:[UIFont systemFontOfSize:13]];
+    self.alertView.clipsToBounds = YES;
+    
+    [self.alertView addSubview:self.alertLabel];
+    [self.navigationController.view addSubview:self.alertView];
+    
     [self updateDisplay];
 }
 
@@ -96,7 +109,34 @@ BOOL    _isShowingDatePicker;
     return _calc;
 }
 
+- (IBAction)selectTodayClick:(id)sender {
+    self.entryDatePicker.date = [NSDate date];
+}
+
 - (IBAction)dateButtonPress:(id)sender {
+    if ([self.calc hasTripInProcess]) {
+        
+        self.entryDateButton.enabled = NO;
+        
+        CGRect labelFrame = self.alertLabel.frame;
+        labelFrame.origin.y = 0;
+        
+        self.alertLabel.text = NSLocalizedString(@"Cannot change entry date while trip is in process", @"Cannot change entry date while trip is in process");
+        [UIView animateWithDuration:ALERT_ANIMATION_DURATION
+         animations:^{
+             [self.alertLabel setFrame:labelFrame];
+         }
+         completion:^(BOOL finished) {
+             CGRect newLabelFrame = self.alertLabel.frame;
+             newLabelFrame.origin.y = -17;
+             [UIView animateWithDuration:ALERT_ANIMATION_DURATION delay:2 options:UIViewAnimationCurveEaseInOut
+                animations:^{
+                          [self.alertLabel setFrame:newLabelFrame];
+                } completion:^(BOOL finished){ self.entryDateButton.enabled = YES; }];
+        }
+         ];
+        return;
+    }
     
     if (!_isShowingDatePicker) {
         [UIView animateWithDuration:0.3f animations:^{
@@ -106,7 +146,9 @@ BOOL    _isShowingDatePicker;
             [self.entryDatePicker setAlpha:1.0f];
         } completion:^(BOOL finished) {
             [self.entryDatePicker setDate:[self.dateFormatter dateFromString:self.entryDateButton.titleLabel.text]];
-            [self.entryDateButton setTitle:@"Set" forState: UIControlStateNormal];
+            [self.entryDateButton setTitle:NSLocalizedString(@"Set", @"Set") forState: UIControlStateNormal];
+            [self.entryDateLabelButton setTitle:NSLocalizedString(@"Select today",@"Select today") forState:UIControlStateNormal];
+            self.entryDateLabelButton.enabled = YES;
             _isShowingDatePicker = YES;
         }];
     } else {
@@ -119,6 +161,8 @@ BOOL    _isShowingDatePicker;
             [self.entryDateButton setTitle:[self.dateFormatter stringFromDate:self.entryDatePicker.date] forState:UIControlStateNormal];
             _isShowingDatePicker = NO;
             self.calc.entryDate = self.entryDatePicker.date;
+            [self.entryDateLabelButton setTitle:NSLocalizedString(@"Date of entry","Date of entry") forState:UIControlStateNormal];
+            self.entryDateLabelButton.enabled = NO;
             [self updateDisplay];
         }];
     }
@@ -135,11 +179,13 @@ BOOL    _isShowingDatePicker;
     if (trip.endDate != nil)
     {
         cell.dateOutLabel.text = [self.dateFormatter stringFromDate:trip.endDate];
-        cell.daysCountLabel.text = [NSString stringWithFormat:@"%ld",[trip getTripDurationBetweenDates:trip.startDate and:trip.endDate]];
+        if ([trip.startDate isEqualToDate:trip.endDate]) cell.daysCountLabel.text = @"1";
+        else
+            cell.daysCountLabel.text = [NSString stringWithFormat:@"%ld",[trip getTripDurationBetweenDates:trip.startDate and:trip.endDate]];
     }
     else
     {
-        cell.dateOutLabel.text = @"In process";
+        cell.dateOutLabel.text = NSLocalizedString(@"In process", @"In process comment");
         cell.daysCountLabel.text = [NSString stringWithFormat:@"%ld",[trip getTripDurationBetweenDates:trip.startDate and:[NSDate date]]];
     }
     
@@ -222,13 +268,17 @@ BOOL    _isShowingDatePicker;
 
 - (void)updateDisplay {
     [self.daysCounter countFromCurrentValueTo:self.calc.getTotalRemainingDays withDuration: ANIMATION_DURATION];
-    
-    if ([self.calc hasTripInProcess]) {
-        NSDate *today = [NSDate date];
-        self.infoLabel.text = [NSString stringWithFormat:@"latest possible departure date is %@", [self.dateFormatter stringFromDate:[today dateByAddingTimeInterval:60*60*24*self.calc.getTotalRemainingDays]]];
-    } else {
-        self.infoLabel.text = @"";
+   
+    NSDate *theDay = [self.calc tripInProcessEntryDate];
+    if (theDay != nil)
+        [self.entryDateButton setTitle:[self.dateFormatter stringFromDate:theDay] forState:UIControlStateNormal];
+    else {
+        theDay = self.calc.entryDate;
+        [self.entryDateButton setTitle:[self.dateFormatter stringFromDate:self.calc.entryDate] forState:UIControlStateNormal];
     }
+    
+    self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"latest possible departure date is %@","lpdt"), [self.dateFormatter stringFromDate:[theDay dateByAddingTimeInterval:60*60*24*(self.calc.getTotalRemainingDays - 1)]]];
+ 
 }
 
 @end

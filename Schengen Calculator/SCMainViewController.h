@@ -16,6 +16,9 @@
 @property (strong, nonatomic) MainVisaCalc *calc;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
+@property (strong, nonatomic) UILabel *alertLabel;
+@property (strong, nonatomic) UIView *alertView;
+
 - (void)saveTripsData;
 
 @end

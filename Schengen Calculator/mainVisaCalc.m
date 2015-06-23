@@ -109,8 +109,8 @@ const int MAX_DAYS = 90;
     
     if (!daysCounted) return 90;
     
-    NSLog(@"Used days in 90-day period: %ld", daysCounted);
-    NSLog(@"First trip date: %@", earliestDate);
+   // NSLog(@"Used days in 90-day period: %ld", daysCounted);
+  //  NSLog(@"First trip date: %@", earliestDate);
     
     NSInteger daysAvailableLoop = daysCounted;
     NSInteger daysAvailablePrevious = 0;
@@ -123,22 +123,22 @@ const int MAX_DAYS = 90;
         
         NSDate* startDate180 = [[NSDate alloc] initWithTimeInterval:-interval180
                                                           sinceDate:endDate180];
-        NSLog(@"New start date: %@", startDate180);
-        NSLog(@"New end date: %@", endDate180);
+   //     NSLog(@"New start date: %@", startDate180);
+    //    NSLog(@"New end date: %@", endDate180);
         
         NSInteger totalDaysCount = 0;
         for (Trip *trip in self.trips)
         {
             NSInteger currentTripDays = [trip getTripDurationBetweenDates:startDate180 and:endDate180];
-            NSLog(@"%@, lasted %ld days", trip, (long)currentTripDays);
+      //      NSLog(@"%@, lasted %ld days", trip, (long)currentTripDays);
             totalDaysCount += currentTripDays;
         }
         
-        NSLog(@"Total used days %ld", totalDaysCount);
+     //   NSLog(@"Total used days %ld", totalDaysCount);
         
         
         daysAvailableLoop = MAX_DAYS - totalDaysCount;
-        NSLog(@"Remaining days %ld", daysAvailableLoop);
+   //     NSLog(@"Remaining days %ld", daysAvailableLoop);
         if (daysAvailableLoop == daysAvailablePrevious) {
             break;
         }
@@ -192,6 +192,13 @@ const int MAX_DAYS = 90;
         if (trip.endDate == nil) return YES;
     }
     return NO;
+}
+
+- (NSDate *)tripInProcessEntryDate {
+    for (Trip *trip in self.trips) {
+        if (trip.endDate == nil) return trip.startDate;
+    }
+    return nil;
 }
 
 @end

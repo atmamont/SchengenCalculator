@@ -24,9 +24,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *departureDateTitleLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
-@property (strong, nonatomic) UILabel *alertLabel;
-@property (strong, nonatomic) UIView *alertView;
-
 @end
 
 @implementation SCTripViewController
@@ -40,7 +37,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
     _departureDatePickerIsShown = NO;
     
     if (!self.mainViewController.refreshControl.refreshing) {
-        self.navigationItem.title = @"Edit trip";
+        self.navigationItem.title = NSLocalizedString(@"Edit trip", @"Edit trip");
         NSIndexPath *path = [self.mainViewController.tripsTableView indexPathForSelectedRow];
         Trip *selectedTrip = [self.mainViewController.calc.trips objectAtIndex:path.row];
         
@@ -50,6 +47,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
         if (selectedTrip.endDate != nil) {
             self.departureDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:selectedTrip.endDate];
             self.departureDatePicker.date = selectedTrip.endDate;
+            self.departureDateTitleLabel.textColor = [UIColor blackColor];
         }
         else {
             // trip in process
@@ -57,10 +55,11 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
             self.departureDateLabel.text = @"";
             self.departureDateCell.selectionStyle = UITableViewCellSelectionStyleNone;
             self.departureDateCell.userInteractionEnabled = NO;
+            self.departureDateTitleLabel.textColor = [UIColor lightGrayColor];
         }
     } else {
         // creating new trip
-        self.navigationItem.title = @"Add trip";
+        self.navigationItem.title = NSLocalizedString(@"Add trip","");
         self.entryDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:self.entryDatePicker.date];
         self.departureDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:self.departureDatePicker.date];
         self.tripSwitch.on = NO;
@@ -72,16 +71,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
     
     self.descriptionTextField.delegate = self;
     
-    self.alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, -17)];
-    self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height, self.view.frame.size.width, 17)];
-    self.alertLabel.text = @"Intersection with trip";
-    self.alertLabel.textAlignment = NSTextAlignmentCenter;
-    [self.alertLabel setBackgroundColor:[UIColor yellowColor]];
-    [self.alertLabel setFont:[UIFont systemFontOfSize:13]];
-    self.alertView.clipsToBounds = YES;
- 
-    [self.alertView addSubview:self.alertLabel];
-    [self.navigationController.view addSubview:self.alertView];
+    [self checkIntersection];
 }
 
 - (void)hideKeyboard {
@@ -176,13 +166,21 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
 
     Trip *trip = [self.mainViewController.calc intersectionTrip:self.entryDatePicker.date and:self.departureDatePicker.date];
     
-    if ((trip != nil) && (trip != selectedTrip)) {
-        NSString *message = [NSString stringWithFormat:@"Intersection with trip %@ - %@", [self.mainViewController.dateFormatter stringFromDate:trip.startDate], [self.mainViewController.dateFormatter stringFromDate:trip.endDate]];
+    if ([self.mainViewController.calc hasTripInProcess] && self.tripSwitch.isOn && (selectedTrip.endDate != nil)) {
+        [self showAlert:NSLocalizedString(@"There is another trip in process already present","")];
         self.doneButton.enabled = NO;
-        [self showAlert:message];
+        return;
     } else {
-        self.doneButton.enabled = YES;
-        [self hideAlert:nil];
+        if ((trip != nil) && (trip != selectedTrip)) {
+            NSString *message;
+            if (trip.endDate == nil) message = NSLocalizedString(@"Intersection with current trip in process","");
+            else message = [NSString stringWithFormat:@"%@ %@ - %@", NSLocalizedString(@"Intersection with trip", ""), [self.mainViewController.dateFormatter stringFromDate:trip.startDate], [self.mainViewController.dateFormatter stringFromDate:trip.endDate]];
+            self.doneButton.enabled = NO;
+            [self showAlert:message];
+        } else {
+            self.doneButton.enabled = YES;
+            [self hideAlert:nil];
+        }
     }
 }
 
@@ -208,6 +206,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
         self.departureDateCell.userInteractionEnabled = NO;
         self.departureDateTitleLabel.textColor = [UIColor lightGrayColor];
         self.entryDatePicker.maximumDate = nil;
+        [self checkIntersection];
     } else {
         _entryDatePickerIsShown = NO;
         _departureDatePickerIsShown = YES;
@@ -216,6 +215,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
         self.departureDateCell.userInteractionEnabled = YES;
         self.departureDateTitleLabel.textColor = [UIColor blackColor];
         self.departureDatePicker.minimumDate = self.entryDatePicker.date;
+        [self checkIntersection];
     }
     [self.tripDetailsTableView endUpdates];
 }
@@ -227,33 +227,33 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
 }
 
 - (void)showAlert:(NSString *)message {
-    if (self.alertLabel.frame.origin.y == 0) {
+    if (self.mainViewController.alertLabel.frame.origin.y == 0) {
         [self hideAlert:message];
         return;
     }
     
-    self.alertLabel.text = message;
-    CGRect labelFrame = self.alertLabel.frame;
+    self.mainViewController.alertLabel.text = message;
+    CGRect labelFrame = self.mainViewController.alertLabel.frame;
     labelFrame.origin.y = 0;
     
-    [UIView animateWithDuration:ALERT_ANIMATION_DURATION delay: 0
-            options: UIViewAnimationCurveEaseInOut
+    [UIView animateWithDuration:ALERT_ANIMATION_DURATION // delay: 0
+       //     options: UIViewAnimationCurveEaseInOut
             animations:^{
-                [self.alertLabel setFrame:labelFrame];
+                [self.mainViewController.alertLabel setFrame:labelFrame];
             }
             completion:nil
      ];
 }
 
 - (void)hideAlert:(NSString *)newMessage {
-    if (self.alertLabel.frame.origin.y == 0) {
-        CGRect labelFrame = self.alertLabel.frame;
+    if (self.mainViewController.alertLabel.frame.origin.y == 0) {
+        CGRect labelFrame = self.mainViewController.alertLabel.frame;
         labelFrame.origin.y = -17;
         
-        [UIView animateWithDuration:ALERT_ANIMATION_DURATION delay:0
-                options: UIViewAnimationCurveEaseInOut
+        [UIView animateWithDuration:ALERT_ANIMATION_DURATION  // delay:0
+            //    options: UIViewAnimationCurveEaseInOut
                 animations:^{
-                    [self.alertLabel setFrame:labelFrame];
+                    [self.mainViewController.alertLabel setFrame:labelFrame];
                 }
                 completion:^(BOOL finished){
                     if (newMessage != nil) [self showAlert:newMessage];

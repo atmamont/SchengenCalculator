@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "Date of entry"; ObjectID = "25Z-Jd-fN3"; */
+"25Z-Jd-fN3.normalTitle" = "Date of entry";
+
+/* Class = "UILabel"; text = "Trip is in process"; ObjectID = "4gu-ZY-2f3"; */
+"4gu-ZY-2f3.text" = "Trip is in process";
+
+/* Class = "UIButton"; normalTitle = "Today"; ObjectID = "5T6-q0-mEa"; */
+"5T6-q0-mEa.normalTitle" = "Today";
+
+/* Class = "UILabel"; text = "Date of departure"; ObjectID = "5qy-a2-Huw"; */
+"5qy-a2-Huw.text" = "Date of departure";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "6ci-SC-pKH"; */
+"6ci-SC-pKH.text" = "Label";
+
+/* Class = "UILabel"; text = "date Out"; ObjectID = "8Dr-3p-5kd"; */
+"8Dr-3p-5kd.text" = "date Out";
+
+/* Class = "UILabel"; text = "latest possible departure date is"; ObjectID = "8lu-vY-Ydt"; */
+"8lu-vY-Ydt.text" = "latest possible departure date is";
+
+/* Class = "UILabel"; text = "90"; ObjectID = "CJP-Jh-ojj"; */
+"CJP-Jh-ojj.text" = "90";
+
+/* Class = "UILabel"; text = "date In"; ObjectID = "K9c-Uf-gdN"; */
+"K9c-Uf-gdN.text" = "date In";
+
+/* Class = "UINavigationItem"; title = "Schengen Calculator"; ObjectID = "NSy-Dk-g77"; */
+"NSy-Dk-g77.title" = "Schengen Calculator";
+
+/* Class = "UILabel"; text = "⬇︎ pull down to add more trips"; ObjectID = "UKh-ah-ejl"; */
+"UKh-ah-ejl.text" = "⬇︎ pull down to add more trips";
+
+/* Class = "UILabel"; text = "Date of entry"; ObjectID = "UNG-Ju-hwK"; */
+"UNG-Ju-hwK.text" = "Date of entry";
+
+/* Class = "UINavigationItem"; title = "Add Trip"; ObjectID = "XkG-za-Wbn"; */
+"XkG-za-Wbn.title" = "Add Trip";
+
+/* Class = "UILabel"; text = "10"; ObjectID = "h7M-rY-uRm"; */
+"h7M-rY-uRm.text" = "10";
+
+/* Class = "UITextField"; placeholder = "Trip description (optional)"; ObjectID = "jll-CX-gGt"; */
+"jll-CX-gGt.placeholder" = "Trip description (optional)";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vXL-hs-qfU"; */
+"vXL-hs-qfU.text" = "Label";
+
+/* Class = "UILabel"; text = "days permitted"; ObjectID = "wtL-gU-SUP"; */
+"wtL-gU-SUP.text" = "days permitted";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "yGs-Rj-4tb"; */
+"yGs-Rj-4tb.text" = "Description";
