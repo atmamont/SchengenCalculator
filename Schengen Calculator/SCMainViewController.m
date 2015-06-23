@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UICountingLabel *daysCounter;
 @property (weak, nonatomic) IBOutlet UILabel *underCountLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *entryDatePicker;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
 
 @end
 
@@ -68,13 +69,14 @@ BOOL    _isShowingDatePicker;
     
     self.daysCounter.format = @"%d%";
     self.daysCounter.method = UILabelCountingMethodLinear;
-    [self.daysCounter countFrom:90 to:self.calc.getTotalRemainingDays withDuration:ANIMATION_DURATION];
+    [self.daysCounter countFrom:90 to:90];
+    [self updateDisplay];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tripsTableView reloadData];
-    [self.daysCounter countFromCurrentValueTo:self.calc.getTotalRemainingDays withDuration:ANIMATION_DURATION];
+    [self updateDisplay];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,6 +102,7 @@ BOOL    _isShowingDatePicker;
         [UIView animateWithDuration:0.3f animations:^{
             [self.daysCounter setAlpha:0.0f];
             [self.underCountLabel setAlpha:0.0f];
+            [self.infoLabel setAlpha:0.0f];
             [self.entryDatePicker setAlpha:1.0f];
         } completion:^(BOOL finished) {
             [self.entryDatePicker setDate:[self.dateFormatter dateFromString:self.entryDateButton.titleLabel.text]];
@@ -110,12 +113,13 @@ BOOL    _isShowingDatePicker;
         [UIView animateWithDuration:0.3f animations:^{
             [self.daysCounter setAlpha:1.0f];
             [self.underCountLabel setAlpha:1.0f];
+            [self.infoLabel setAlpha:1.0f];
             [self.entryDatePicker setAlpha:0.0f];
         } completion:^(BOOL finished) {
             [self.entryDateButton setTitle:[self.dateFormatter stringFromDate:self.entryDatePicker.date] forState:UIControlStateNormal];
             _isShowingDatePicker = NO;
             self.calc.entryDate = self.entryDatePicker.date;
-            [self.daysCounter countFromCurrentValueTo:self.calc.getTotalRemainingDays withDuration:ANIMATION_DURATION];
+            [self updateDisplay];
         }];
     }
 }
@@ -162,7 +166,7 @@ BOOL    _isShowingDatePicker;
         
         [self saveTripsData];
         
-        [self.daysCounter countFromCurrentValueTo:self.calc.getTotalRemainingDays withDuration:ANIMATION_DURATION];
+        [self updateDisplay];
     }
 }
 
@@ -173,7 +177,6 @@ BOOL    _isShowingDatePicker;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"addTrip" sender:self];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -212,8 +215,19 @@ BOOL    _isShowingDatePicker;
         for (NSData *trip in archiveArray)
         {
             Trip  *unarchivedTrip = [NSKeyedUnarchiver unarchiveObjectWithData:trip];
-            if (unarchivedTrip != nil) [self.calc.trips addObject:unarchivedTrip];
+            if (unarchivedTrip != nil) [self.calc addTrip:unarchivedTrip.startDate and:unarchivedTrip.endDate named:unarchivedTrip.name];
         }
+    }
+}
+
+- (void)updateDisplay {
+    [self.daysCounter countFromCurrentValueTo:self.calc.getTotalRemainingDays withDuration: ANIMATION_DURATION];
+    
+    if ([self.calc hasTripInProcess]) {
+        NSDate *today = [NSDate date];
+        self.infoLabel.text = [NSString stringWithFormat:@"latest possible departure date is %@", [self.dateFormatter stringFromDate:[today dateByAddingTimeInterval:60*60*24*self.calc.getTotalRemainingDays]]];
+    } else {
+        self.infoLabel.text = @"";
     }
 }
 

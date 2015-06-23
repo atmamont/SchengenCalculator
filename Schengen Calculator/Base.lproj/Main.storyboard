@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-V3-FGu">
-                                <rect key="frame" x="0.0" y="64" width="601" height="162"/>
+                            <datePicker alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TqM-V3-FGu">
+                                <rect key="frame" x="0.0" y="70.5" width="584" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="Okb-AV-qKf"/>
                                 </constraints>
@@ -155,6 +155,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="NYZ-Ze-4Fi"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="latest possible departure date is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lu-vY-Ydt">
+                                <rect key="frame" x="16" y="216.5" width="568" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.96862745100000003" green="0.97647058819999999" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -162,6 +168,7 @@
                             <constraint firstAttribute="centerX" secondItem="CJP-Jh-ojj" secondAttribute="centerX" id="3LT-Zb-5cD"/>
                             <constraint firstItem="wtL-gU-SUP" firstAttribute="top" secondItem="CJP-Jh-ojj" secondAttribute="bottom" constant="-0.5" id="3wY-Co-MMG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LdM-fm-9bC" secondAttribute="bottom" id="5lO-8r-k1a"/>
+                            <constraint firstItem="8lu-vY-Ydt" firstAttribute="top" secondItem="wtL-gU-SUP" secondAttribute="bottom" constant="4" id="6PE-od-gIp"/>
                             <constraint firstItem="WqV-K7-pco" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="7Vc-5S-Zd7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TqM-V3-FGu" secondAttribute="trailing" id="8zl-JN-dbd"/>
                             <constraint firstItem="LdM-fm-9bC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="DfK-gu-fGm"/>
@@ -169,8 +176,10 @@
                             <constraint firstItem="TqM-V3-FGu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LKX-a5-0EK"/>
                             <constraint firstItem="WqV-K7-pco" firstAttribute="top" secondItem="wtL-gU-SUP" secondAttribute="bottom" constant="30" id="Pm9-U9-2Tq"/>
                             <constraint firstAttribute="trailing" secondItem="5T6-q0-mEa" secondAttribute="trailing" constant="-1" id="YZt-FC-w35"/>
+                            <constraint firstItem="8lu-vY-Ydt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bFh-YP-wU2"/>
                             <constraint firstItem="5T6-q0-mEa" firstAttribute="leading" secondItem="WqV-K7-pco" secondAttribute="trailing" constant="-1" id="iye-RZ-g4N"/>
                             <constraint firstItem="5T6-q0-mEa" firstAttribute="centerY" secondItem="WqV-K7-pco" secondAttribute="centerY" id="jAb-Fq-2y0"/>
+                            <constraint firstItem="8lu-vY-Ydt" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="mer-TM-VkM"/>
                             <constraint firstItem="WqV-K7-pco" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-1" id="pVq-bC-Ml3"/>
                             <constraint firstItem="TqM-V3-FGu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pij-Mf-TUG"/>
                             <constraint firstItem="CJP-Jh-ojj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="srq-gA-6WC"/>
@@ -183,6 +192,7 @@
                         <outlet property="entryDateButton" destination="5T6-q0-mEa" id="8Us-S3-SmA"/>
                         <outlet property="entryDateLabel" destination="WqV-K7-pco" id="4UD-hm-kPj"/>
                         <outlet property="entryDatePicker" destination="TqM-V3-FGu" id="j7u-te-h0d"/>
+                        <outlet property="infoLabel" destination="8lu-vY-Ydt" id="4oj-LW-m44"/>
                         <outlet property="tripsTableView" destination="LdM-fm-9bC" id="amO-Wh-bLp"/>
                         <outlet property="underCountLabel" destination="wtL-gU-SUP" id="4JR-4i-jva"/>
                         <segue destination="TJV-EB-lNz" kind="show" identifier="addTrip" id="w4c-oe-J4f"/>
@@ -381,6 +391,7 @@
                         <outlet property="departureDatePicker" destination="7V5-Rs-nzS" id="SKJ-Uh-0rz"/>
                         <outlet property="departureDateTitleLabel" destination="5qy-a2-Huw" id="jSU-Xj-nLf"/>
                         <outlet property="descriptionTextField" destination="jll-CX-gGt" id="bhU-WJ-hFA"/>
+                        <outlet property="doneButton" destination="2H7-Y4-9NK" id="UjT-yH-BqK"/>
                         <outlet property="entryDateCell" destination="ad7-Fn-1Uw" id="oUX-KX-C0T"/>
                         <outlet property="entryDateLabel" destination="vXL-hs-qfU" id="nnh-mG-g4u"/>
                         <outlet property="entryDatePicker" destination="u0A-r3-unz" id="7lB-o2-DzM"/>

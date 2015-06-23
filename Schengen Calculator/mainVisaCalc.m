@@ -59,7 +59,7 @@ const int MAX_DAYS = 90;
     // trying to find correct place to insert new trip
     NSUInteger newIndex = -1;
     for (Trip *trip in self.trips){
-        if (trip.startDate > newTrip.startDate)
+        if ([trip.startDate compare:newTrip.startDate] == NSOrderedAscending)
         {
             // assuming array always sorted by startDate
             newIndex = [self.trips indexOfObject:trip];
@@ -168,6 +168,30 @@ const int MAX_DAYS = 90;
 //
 //    return MAX_DAYS - totalDaysCount;
     
+}
+
+- (Trip *)intersectionTrip:(NSDate *)startDate and:(NSDate *)endDate {
+    // return intersection Trip * if any
+    
+    for (Trip *trip in self.trips) {
+        // compare if startDate is in between other trip startDate-endDate range
+        if (([startDate compare:trip.startDate] != NSOrderedAscending) &&          // later or equal than trip.startDate
+            ([startDate compare:trip.endDate] == NSOrderedAscending))           // and earlier than trip.endDate
+            return trip;
+        
+        // check if endDate is in between another trip time interval
+        if (([endDate compare:trip.startDate] == NSOrderedDescending) &&
+            ([endDate compare:trip.endDate] != NSOrderedDescending))
+            return trip;
+    }
+    return nil;
+}
+
+- (BOOL)hasTripInProcess {
+    for (Trip *trip in self.trips) {
+        if (trip.endDate == nil) return YES;
+    }
+    return NO;
 }
 
 @end

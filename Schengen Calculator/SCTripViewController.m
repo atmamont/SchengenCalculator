@@ -8,6 +8,8 @@
 
 #import "SCTripViewController.h"
 
+#define ALERT_ANIMATION_DURATION    0.15f
+
 @interface SCTripViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
@@ -20,6 +22,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *departureDateLabel;
 @property (strong, nonatomic) IBOutlet UITableView *tripDetailsTableView;
 @property (weak, nonatomic) IBOutlet UILabel *departureDateTitleLabel;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+
+@property (strong, nonatomic) UILabel *alertLabel;
+@property (strong, nonatomic) UIView *alertView;
 
 @end
 
@@ -40,8 +46,10 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
         
         self.descriptionTextField.text = selectedTrip.name;
         self.entryDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:selectedTrip.startDate];
+        self.entryDatePicker.date = selectedTrip.startDate;
         if (selectedTrip.endDate != nil) {
             self.departureDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:selectedTrip.endDate];
+            self.departureDatePicker.date = selectedTrip.endDate;
         }
         else {
             // trip in process
@@ -63,6 +71,17 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
     gestureRecognizer.cancelsTouchesInView = NO;  // this prevents the gesture recognizers to 'block' touches
     
     self.descriptionTextField.delegate = self;
+    
+    self.alertLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, -17)];
+    self.alertView = [[UIView alloc] initWithFrame:CGRectMake(0, self.navigationController.navigationBar.frame.size.height + [UIApplication sharedApplication].statusBarFrame.size.height, self.view.frame.size.width, 17)];
+    self.alertLabel.text = @"Intersection with trip";
+    self.alertLabel.textAlignment = NSTextAlignmentCenter;
+    [self.alertLabel setBackgroundColor:[UIColor yellowColor]];
+    [self.alertLabel setFont:[UIFont systemFontOfSize:13]];
+    self.alertView.clipsToBounds = YES;
+ 
+    [self.alertView addSubview:self.alertLabel];
+    [self.navigationController.view addSubview:self.alertView];
 }
 
 - (void)hideKeyboard {
@@ -77,6 +96,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
 - (IBAction)cancelButtonClick:(id)sender {
     if (self.mainViewController.refreshControl.refreshing)
         [self.mainViewController.refreshControl endRefreshing];
+    [self hideAlert:nil];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -146,14 +166,37 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)checkIntersection {
+    Trip *selectedTrip = nil;
+    
+    if (!self.mainViewController.refreshControl.refreshing) {
+        NSIndexPath *path = [self.mainViewController.tripsTableView indexPathForSelectedRow];
+        selectedTrip = [self.mainViewController.calc.trips objectAtIndex:path.row];
+    }
+
+    Trip *trip = [self.mainViewController.calc intersectionTrip:self.entryDatePicker.date and:self.departureDatePicker.date];
+    
+    if ((trip != nil) && (trip != selectedTrip)) {
+        NSString *message = [NSString stringWithFormat:@"Intersection with trip %@ - %@", [self.mainViewController.dateFormatter stringFromDate:trip.startDate], [self.mainViewController.dateFormatter stringFromDate:trip.endDate]];
+        self.doneButton.enabled = NO;
+        [self showAlert:message];
+    } else {
+        self.doneButton.enabled = YES;
+        [self hideAlert:nil];
+    }
+}
+
 - (IBAction)entryDateChanged:(id)sender {
     self.entryDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:self.entryDatePicker.date];
     self.departureDatePicker.minimumDate = self.entryDatePicker.date;
+    [self checkIntersection];
 }
 
 - (IBAction)departureDateChanged:(id)sender {
     self.departureDateLabel.text = [self.mainViewController.dateFormatter stringFromDate:self.departureDatePicker.date];
     self.entryDatePicker.maximumDate = self.departureDatePicker.date;
+    
+    [self checkIntersection];
 }
 
 - (IBAction)switchClick:(id)sender {
@@ -181,6 +224,42 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     return (newLength > 20) ? NO : YES;
+}
+
+- (void)showAlert:(NSString *)message {
+    if (self.alertLabel.frame.origin.y == 0) {
+        [self hideAlert:message];
+        return;
+    }
+    
+    self.alertLabel.text = message;
+    CGRect labelFrame = self.alertLabel.frame;
+    labelFrame.origin.y = 0;
+    
+    [UIView animateWithDuration:ALERT_ANIMATION_DURATION delay: 0
+            options: UIViewAnimationCurveEaseInOut
+            animations:^{
+                [self.alertLabel setFrame:labelFrame];
+            }
+            completion:nil
+     ];
+}
+
+- (void)hideAlert:(NSString *)newMessage {
+    if (self.alertLabel.frame.origin.y == 0) {
+        CGRect labelFrame = self.alertLabel.frame;
+        labelFrame.origin.y = -17;
+        
+        [UIView animateWithDuration:ALERT_ANIMATION_DURATION delay:0
+                options: UIViewAnimationCurveEaseInOut
+                animations:^{
+                    [self.alertLabel setFrame:labelFrame];
+                }
+                completion:^(BOOL finished){
+                    if (newMessage != nil) [self showAlert:newMessage];
+                }
+         ];
+    }
 }
 
 @end
