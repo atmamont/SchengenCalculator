@@ -278,7 +278,12 @@ BOOL    _isShowingDatePicker;
     }
     
     self.infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"latest possible departure date is %@","lpdt"), [self.dateFormatter stringFromDate:[theDay dateByAddingTimeInterval:60*60*24*(self.calc.getTotalRemainingDays - 1)]]];
- 
 }
+
+- (IBAction)plusButtonClick:(id)sender {
+    [self.refreshControl beginRefreshing];
+    [self performSegueWithIdentifier:@"addTrip" sender:self];
+}
+
 
 @end

@@ -1,0 +1,33 @@
+/* No comment provided by engineer. */
+"Add trip" = "Добавить поездку";
+
+/* Cannot change entry date while trip is in process */
+"Cannot change entry date while trip is in process" = "Нельзя изменить дату въезда во время поездки";
+
+/* Date of entry */
+"Date of entry" = "Дата въезда";
+
+/* Edit trip */
+"Edit trip" = "Редактировать поездку";
+
+/* In process comment */
+"In process" = "Не завершена";
+
+/* No comment provided by engineer. */
+"Intersection with current trip in process" = "Пересечение с текущей поездкой";
+
+/* No comment provided by engineer. */
+"Intersection with trip" = "Пересечение с поездкой";
+
+/* Select today */
+"Select today" = "Выбрать сегодня";
+
+/* Set */
+"Set" = "Установить";
+
+/* No comment provided by engineer. */
+"There is another trip in process already present" = "Незавершённая поездка уже есть";
+
+/* lpdt */
+"latest possible departure date is %@" = "Самая поздняя дата выезда";
+

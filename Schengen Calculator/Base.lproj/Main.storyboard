@@ -191,7 +191,14 @@
                             <constraint firstAttribute="trailing" secondItem="LdM-fm-9bC" secondAttribute="trailing" id="t3E-wf-NVp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Schengen Calculator" id="NSy-Dk-g77"/>
+                    <navigationItem key="navigationItem" title="Schengen Calculator" id="NSy-Dk-g77">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="s9X-Yb-dmX">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="plusButtonClick:" destination="BYZ-38-t0r" id="Typ-eL-jPz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="daysCounter" destination="CJP-Jh-ojj" id="daA-gE-S2U"/>
                         <outlet property="entryDateButton" destination="5T6-q0-mEa" id="8Us-S3-SmA"/>
