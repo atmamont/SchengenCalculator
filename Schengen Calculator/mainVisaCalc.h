@@ -19,6 +19,11 @@
 
 - (void) addTrip: (NSDate *) startDate and: (NSDate*) endDate named: (NSString*) name;
 
+- (Trip *)intersectionTrip: (NSDate *) startDate and: (NSDate *) endDate;
+- (BOOL)hasTripInProcess;
+
+- (NSDate *)tripInProcessEntryDate;
+
 - (NSInteger) getTotalRemainingDays;
 
 @end
