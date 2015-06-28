@@ -75,7 +75,7 @@ const int MAX_DAYS = 90;
 }
 
 // MAIN LOGIC HERE
-
+/*
 - (NSInteger) getTotalRemainingDays{
     
     // step 1. count remaining days in 90 day interval for the moment of entry
@@ -109,8 +109,8 @@ const int MAX_DAYS = 90;
     
     if (!daysCounted) return 90;
     
-   // NSLog(@"Used days in 90-day period: %ld", daysCounted);
-  //  NSLog(@"First trip date: %@", earliestDate);
+    NSLog(@"Used days in 90-day period: %ld", daysCounted);
+    NSLog(@"First trip date: %@", earliestDate);
     
     NSInteger daysAvailableLoop = daysCounted;
     NSInteger daysAvailablePrevious = 0;
@@ -123,22 +123,23 @@ const int MAX_DAYS = 90;
         
         NSDate* startDate180 = [[NSDate alloc] initWithTimeInterval:-interval180
                                                           sinceDate:endDate180];
-   //     NSLog(@"New start date: %@", startDate180);
-    //    NSLog(@"New end date: %@", endDate180);
+        NSLog(@"New start date: %@", startDate180);
+        NSLog(@"New end date: %@", endDate180);
         
         NSInteger totalDaysCount = 0;
+   
         for (Trip *trip in self.trips)
         {
             NSInteger currentTripDays = [trip getTripDurationBetweenDates:startDate180 and:endDate180];
-      //      NSLog(@"%@, lasted %ld days", trip, (long)currentTripDays);
+            NSLog(@"%@, lasted %ld days", trip, (long)currentTripDays);
             totalDaysCount += currentTripDays;
         }
         
-     //   NSLog(@"Total used days %ld", totalDaysCount);
+        NSLog(@"Total used days %ld", totalDaysCount);
         
         
         daysAvailableLoop = MAX_DAYS - totalDaysCount;
-   //     NSLog(@"Remaining days %ld", daysAvailableLoop);
+        NSLog(@"Remaining days %ld", daysAvailableLoop);
         if (daysAvailableLoop == daysAvailablePrevious) {
             break;
         }
@@ -168,6 +169,30 @@ const int MAX_DAYS = 90;
 //
 //    return MAX_DAYS - totalDaysCount;
     
+} */
+
+- (NSInteger)getTotalRemainingDays {
+ 
+    NSTimeInterval interval180 = DAYS_WINDOW * 60 * 60 * 24;
+    NSInteger daysSpentPresent = 0;
+    NSInteger remainingDays;
+
+    do {
+        NSDate* endDate180 = [[NSDate alloc] initWithTimeInterval:60*60*24*daysSpentPresent sinceDate: self.entryDate];
+        NSDate* startDate180 = [[NSDate alloc] initWithTimeInterval:-interval180 sinceDate:endDate180];
+        
+        NSInteger daysSpentPast = 0;
+        for (Trip *trip in self.trips)
+        {
+            NSInteger daysCount = [trip getTripDurationBetweenDates:startDate180 and:endDate180];
+            daysSpentPast += daysCount;
+        }
+        
+        remainingDays = 90 - (daysSpentPast + daysSpentPresent);
+        daysSpentPresent += remainingDays;
+    } while (remainingDays > 0);
+    
+    return daysSpentPresent;
 }
 
 - (Trip *)intersectionTrip:(NSDate *)startDate and:(NSDate *)endDate {

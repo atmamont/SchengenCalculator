@@ -129,8 +129,8 @@
                                                 <mask key="constraints">
                                                     <exclude reference="A5X-DO-0Uf"/>
                                                     <exclude reference="BP7-YD-Smd"/>
-                                                    <exclude reference="6g0-b6-N4w"/>
                                                     <exclude reference="TBp-vF-P8o"/>
+                                                    <exclude reference="6g0-b6-N4w"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -419,7 +419,6 @@
         <!--Navigation Controller-->
         <scene sceneID="dme-xw-cGq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2kA-Dg-UhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S0W-PG-umR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lc4-t3-gnh">
@@ -431,6 +430,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="36W-cG-ZKV"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kA-Dg-UhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431" y="621"/>
         </scene>
