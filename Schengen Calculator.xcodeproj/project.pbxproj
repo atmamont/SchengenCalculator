@@ -20,20 +20,20 @@
 		58814BCD1B3565E800FE9634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCB1B3565E800FE9634 /* Main.storyboard */; };
 		58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58814BCE1B3565E800FE9634 /* Images.xcassets */; };
 		58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58814BD01B3565E800FE9634 /* LaunchScreen.xib */; };
-		58814BDE1B3565E800FE9634 /* Schengen_CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58814BDD1B3565E800FE9634 /* Schengen_CalculatorTests.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		58814BD81B3565E800FE9634 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58814BB61B3565E700FE9634 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58814BBD1B3565E800FE9634;
-			remoteInfo = "Schengen Calculator";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		55D4B0041B593CD2006D9ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D4B0051B593CD2006D9ED9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		55D4B0071B593CD2006D9ED9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		55D4B0081B593CD2006D9ED9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		55D4B00A1B593CD2006D9ED9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		55D4B00B1B593CD2006D9ED9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		55D4B00E1B593CD2006D9ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55D4B0101B593CD2006D9ED9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		55D4B0131B593CD2006D9ED9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		55D4B01E1B593CD3006D9ED9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55D4B01F1B593CD3006D9ED9 /* SCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTests.m; sourceTree = "<group>"; };
 		582703351B3850CD009BBCD7 /* mainVisaCalc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainVisaCalc.h; sourceTree = "<group>"; };
 		582703361B3850CD009BBCD7 /* mainVisaCalc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainVisaCalc.m; sourceTree = "<group>"; };
 		582703371B3850CD009BBCD7 /* Trip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trip.h; sourceTree = "<group>"; };
@@ -56,7 +56,6 @@
 		58814BCC1B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58814BCE1B3565E800FE9634 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58814BD11B3565E800FE9634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Schengen CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58814BDC1B3565E800FE9634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58814BDD1B3565E800FE9634 /* Schengen_CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Schengen_CalculatorTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,16 +68,50 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58814BD41B3565E800FE9634 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55D4B0021B593CD2006D9ED9 /* SC */ = {
+			isa = PBXGroup;
+			children = (
+				55D4B0071B593CD2006D9ED9 /* AppDelegate.h */,
+				55D4B0081B593CD2006D9ED9 /* AppDelegate.m */,
+				55D4B00A1B593CD2006D9ED9 /* ViewController.h */,
+				55D4B00B1B593CD2006D9ED9 /* ViewController.m */,
+				55D4B00D1B593CD2006D9ED9 /* Main.storyboard */,
+				55D4B0101B593CD2006D9ED9 /* Images.xcassets */,
+				55D4B0121B593CD2006D9ED9 /* LaunchScreen.xib */,
+				55D4B0031B593CD2006D9ED9 /* Supporting Files */,
+			);
+			path = SC;
+			sourceTree = "<group>";
+		};
+		55D4B0031B593CD2006D9ED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55D4B0041B593CD2006D9ED9 /* Info.plist */,
+				55D4B0051B593CD2006D9ED9 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		55D4B01C1B593CD3006D9ED9 /* SCTests */ = {
+			isa = PBXGroup;
+			children = (
+				55D4B01F1B593CD3006D9ED9 /* SCTests.m */,
+				55D4B01D1B593CD3006D9ED9 /* Supporting Files */,
+			);
+			path = SCTests;
+			sourceTree = "<group>";
+		};
+		55D4B01D1B593CD3006D9ED9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				55D4B01E1B593CD3006D9ED9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		582703341B385084009BBCD7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +137,8 @@
 			children = (
 				58814BC01B3565E800FE9634 /* Schengen Calculator */,
 				58814BDA1B3565E800FE9634 /* Schengen CalculatorTests */,
+				55D4B0021B593CD2006D9ED9 /* SC */,
+				55D4B01C1B593CD3006D9ED9 /* SCTests */,
 				58814BBF1B3565E800FE9634 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				58814BBE1B3565E800FE9634 /* Schengen Calculator.app */,
-				58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,24 +220,6 @@
 			productReference = 58814BBE1B3565E800FE9634 /* Schengen Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		58814BD61B3565E800FE9634 /* Schengen CalculatorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58814BE41B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen CalculatorTests" */;
-			buildPhases = (
-				58814BD31B3565E800FE9634 /* Sources */,
-				58814BD41B3565E800FE9634 /* Frameworks */,
-				58814BD51B3565E800FE9634 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				58814BD91B3565E800FE9634 /* PBXTargetDependency */,
-			);
-			name = "Schengen CalculatorTests";
-			productName = "Schengen CalculatorTests";
-			productReference = 58814BD71B3565E800FE9634 /* Schengen CalculatorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,10 +232,6 @@
 					58814BBD1B3565E800FE9634 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = N7U4HGP254;
-					};
-					58814BD61B3565E800FE9634 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 58814BBD1B3565E800FE9634;
 					};
 				};
 			};
@@ -237,7 +249,6 @@
 			projectRoot = "";
 			targets = (
 				58814BBD1B3565E800FE9634 /* Schengen Calculator */,
-				58814BD61B3565E800FE9634 /* Schengen CalculatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -252,13 +263,6 @@
 				582703411B38772B009BBCD7 /* out.png in Resources */,
 				58814BD21B3565E800FE9634 /* LaunchScreen.xib in Resources */,
 				58814BCF1B3565E800FE9634 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58814BD51B3565E800FE9634 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,25 +284,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58814BD31B3565E800FE9634 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58814BDE1B3565E800FE9634 /* Schengen_CalculatorTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		58814BD91B3565E800FE9634 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58814BBD1B3565E800FE9634 /* Schengen Calculator */;
-			targetProxy = 58814BD81B3565E800FE9634 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
+		55D4B00D1B593CD2006D9ED9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55D4B00E1B593CD2006D9ED9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		55D4B0121B593CD2006D9ED9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				55D4B0131B593CD2006D9ED9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		58814BCB1B3565E800FE9634 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -405,11 +409,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6b460c6a-2f43-491f-a255-d5b02ad8bbe7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -418,45 +424,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Schengen Calculator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		58814BE51B3565E800FE9634 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Schengen CalculatorTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Schengen Calculator.app/Schengen Calculator";
-			};
-			name = Debug;
-		};
-		58814BE61B3565E800FE9634 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Schengen CalculatorTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Schengen Calculator.app/Schengen Calculator";
+				PROVISIONING_PROFILE = "6b460c6a-2f43-491f-a255-d5b02ad8bbe7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -477,15 +451,6 @@
 			buildConfigurations = (
 				58814BE21B3565E800FE9634 /* Debug */,
 				58814BE31B3565E800FE9634 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58814BE41B3565E800FE9634 /* Build configuration list for PBXNativeTarget "Schengen CalculatorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58814BE51B3565E800FE9634 /* Debug */,
-				58814BE61B3565E800FE9634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
