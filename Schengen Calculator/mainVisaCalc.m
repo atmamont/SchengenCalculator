@@ -191,23 +191,43 @@ const int MAX_DAYS = 90;
         remainingDays = 90 - (daysSpentPast + daysSpentPresent);
         daysSpentPresent += remainingDays;
     } while (remainingDays > 0);
-    
-    return daysSpentPresent;
+
+//    mmnt 12/11/2015
+//    return daysSpentPresent;
+    return fmax(daysSpentPresent,0);
 }
 
-- (Trip *)intersectionTrip:(NSDate *)startDate and:(NSDate *)endDate {
+- (Trip *)intersectionTrip:(NSDate *)startDate and:(NSDate *)endDate currentTrip:(Trip *)currentTrip{
     // return intersection Trip * if any
     
     for (Trip *trip in self.trips) {
+
+        // mmnt 12/11/2015
+        // check if there is a trip "in process"
+        if (currentTrip!=nil && currentTrip == trip) continue;
+        if ((trip.endDate == nil) && ( [startDate compare:trip.startDate] != NSOrderedAscending || [endDate compare:trip.endDate] != NSOrderedAscending )) {
+         return trip;
+        }
+        
         // compare if startDate is in between other trip startDate-endDate range
-        if (([startDate compare:trip.startDate] != NSOrderedAscending) &&          // later or equal than trip.startDate
-            ([startDate compare:trip.endDate] == NSOrderedAscending))           // and earlier than trip.endDate
+        if (
+            ([startDate compare:trip.startDate] != NSOrderedAscending) &&          // later or equal than trip.startDate
+            (([startDate compare:trip.endDate] == NSOrderedAscending) || trip.endDate == nil)
+            )           // and earlier than trip.endDate
             return trip;
         
         // check if endDate is in between another trip time interval
         if (([endDate compare:trip.startDate] == NSOrderedDescending) &&
             ([endDate compare:trip.endDate] != NSOrderedDescending))
             return trip;
+        
+        // compare if startDate is earlier than trip startDate and endDate is later than trip endDate
+        if (
+            ([startDate compare:trip.startDate] == NSOrderedAscending) &&          // earlier than trip.startDate
+            ([endDate compare:trip.endDate] != NSOrderedAscending)
+            )           // and earlier than trip.endDate
+            return trip;
+        
     }
     return nil;
 }

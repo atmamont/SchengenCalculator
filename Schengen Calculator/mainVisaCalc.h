@@ -19,7 +19,7 @@
 
 - (void) addTrip: (NSDate *) startDate and: (NSDate*) endDate named: (NSString*) name;
 
-- (Trip *)intersectionTrip: (NSDate *) startDate and: (NSDate *) endDate;
+- (Trip *)intersectionTrip: (NSDate *) startDate and: (NSDate *) endDate currentTrip:(Trip *)currentTrip;
 - (BOOL)hasTripInProcess;
 
 - (NSDate *)tripInProcessEntryDate;

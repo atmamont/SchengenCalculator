@@ -164,7 +164,7 @@ BOOL _entryDatePickerIsShown, _departureDatePickerIsShown;
         selectedTrip = [self.mainViewController.calc.trips objectAtIndex:path.row];
     }
 
-    Trip *trip = [self.mainViewController.calc intersectionTrip:self.entryDatePicker.date and:self.departureDatePicker.date];
+    Trip *trip = [self.mainViewController.calc intersectionTrip:self.entryDatePicker.date and:self.departureDatePicker.date currentTrip: selectedTrip];
     
     if ([self.mainViewController.calc hasTripInProcess] && self.tripSwitch.isOn && (selectedTrip.endDate != nil)) {
         [self showAlert:NSLocalizedString(@"There is another trip in process already present","")];
