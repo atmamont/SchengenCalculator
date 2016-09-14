@@ -69,6 +69,7 @@ BOOL    _isShowingDatePicker;
     
     [self loadTripsData];
     // comment
+    // second comment - database layer 
     
     self.daysCounter.format = @"%d%";
     self.daysCounter.method = UILabelCountingMethodLinear;
