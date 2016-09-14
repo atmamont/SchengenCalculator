@@ -68,6 +68,7 @@ BOOL    _isShowingDatePicker;
     tableViewController.refreshControl = self.refreshControl;
     
     [self loadTripsData];
+    // comment
     
     self.daysCounter.format = @"%d%";
     self.daysCounter.method = UILabelCountingMethodLinear;
